@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Namulau'ulu Nu'uali'i Eteroa Lafaele</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --text-primary: #1a1a1a;
+      --text-secondary: #555;
+      --text-tertiary: #999;
+      --border: #e0e0e0;
+      --border-light: #ebebeb;
+      --bg: #fff;
+      --bg-secondary: #f7f7f5;
+      --radius: 8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text-primary);
+      background: var(--bg);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2.5rem;
+      border-bottom: 0.5px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text-primary); }
+
+    /* HERO */
+    .hero {
+      padding: 5rem 2.5rem 4rem;
+      max-width: 900px;
+    }
+
+    .hero-tag {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 0.5px;
+      background: var(--text-secondary);
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em { font-style: italic; }
+
+    .hero-village {
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--text-tertiary);
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 10px 24px;
+      border-radius: 2px;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover { opacity: 0.8; }
+
+    .btn-primary {
+      background: var(--text-primary);
+      color: #fff;
+      border: 1px solid var(--text-primary);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 0.5px solid #bbb;
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 0.5px;
+      background: var(--border);
+      margin: 0 2.5rem;
+    }
+
+    /* SECTIONS */
+    .section { padding: 4rem 2.5rem; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 4rem;
+    }
+
+    .about-text {
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    .about-text p { margin-bottom: 1.1rem; }
+
+    .awards-col { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .awards-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+    }
+
+    .award-item {
+      border-left: 1.5px solid var(--border);
+      padding-left: 1rem;
+    }
+
+    .award-title {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--text-primary);
+    }
+
+    .award-org {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      margin-top: 2px;
+      letter-spacing: 0.03em;
+    }
+
+    .book-card {
+      margin-top: 1.5rem;
+      background: var(--bg-secondary);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+    }
+
+    .book-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 0.4rem;
+    }
+
+    .book-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      font-style: italic;
+      margin-bottom: 0.4rem;
+    }
+
+    .book-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* SERVICES */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 0.5px solid var(--border);
+    }
+
+    .services-row2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 0.5px solid var(--border);
+      border-top: none;
+    }
+
+    .service-item {
+      background: var(--bg);
+      padding: 2rem 1.5rem;
+    }
+
+    .service-num {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .service-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .service-desc {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    .tag-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 2px;
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      letter-spacing: 0.04em;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 4rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      border-top: 0.5px solid var(--border);
+    }
+
+    .cta-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-text p {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 1.5rem 2.5rem;
+      border-top: 0.5px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-left {
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    .footer-right {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      font-style: italic;
+    }
+
+    /* PHOTOS */
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 4rem;
+      align-items: center;
+      padding: 5rem 2.5rem 4rem;
+      max-width: 1100px;
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-placeholder {
+      background: var(--bg-secondary);
+      border: 0.5px dashed var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--text-tertiary);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .photo-placeholder span { font-size: 24px; }
+
+    .about-photo-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .about-photo {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .book-cover {
+      width: 80px;
+      height: 100px;
+      object-fit: cover;
+      float: right;
+      margin-left: 1rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero-layout { grid-template-columns: 1fr; padding: 3rem 1.5rem 2rem; gap: 2rem; }
+      .hero-photo { height: 320px; }
+      .section { padding: 3rem 1.5rem; }
+      .divider { margin: 0 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-photo-row { grid-template-columns: 1fr; }
+      .services { grid-template-columns: 1fr; }
+      .services-row2 { grid-template-columns: 1fr; }
+      .cta-section { padding: 3rem 1.5rem; flex-direction: column; align-items: flex-start; }
+      footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">N. Lafaele</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <!-- 📸 PHOTO: Replace "photos/hero.jpg" with your portrait photo filename -->
+  <section class="hero-layout">
+    <div class="hero-content">
+      <div class="hero-tag">Technology Leader · Speaker · MC · Author</div>
+      <h1>Namulau'ulu<br>Nu'uali'i Eteroa<br><em>Lafaele</em></h1>
+      <div class="hero-village">Fogapoa · Leulumoega Tuai · Tafagamanu Lefaga</div>
+      <p class="hero-sub">Advancing digital equity and artificial intelligence capability across Aotearoa New Zealand and the Pacific — ensuring Pacific communities are not just consumers of technology, but builders, creators, and leaders.</p>
+      <div class="btn-row">
+        <a href="#contact" class="btn btn-primary">Work with me</a>
+        <a href="#about" class="btn btn-secondary">Learn more</a>
+      </div>
+    </div>
+    <!-- Swap src below with your photo e.g. src="photos/eteroa-hero.jpg" -->
+    <img
+      src="photos/hero.jpg"
+      alt="Eteroa Lafaele"
+      class="hero-photo"
+      onerror="this.outerHTML='<div class=\'hero-photo photo-placeholder\'><span>📷</span>Add your portrait photo here<br><small>photos/hero.jpg</small></div>'"
+    />
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ABOUT -->
+  <!-- 📸 PHOTOS: Add a speaking photo + community photo side by side -->
+  <section class="section" id="about">
+    <div class="section-label">About</div>
+
+    <!-- Swap these two images with your own photos -->
+    <div class="about-photo-row">
+      <img
+        src="photos/speaking.jpg"
+        alt="Eteroa speaking on stage"
+        class="about-photo"
+        onerror="this.outerHTML='<div class=\'about-photo photo-placeholder\'><span>🎤</span>Speaking photo<br><small>photos/speaking.jpg</small></div>'"
+      />
+      <img
+        src="photos/community.jpg"
+        alt="Eteroa with community"
+        class="about-photo"
+        onerror="this.outerHTML='<div class=\'about-photo photo-placeholder\'><span>🤝</span>Community photo<br><small>photos/community.jpg</small></div>'"
+      />
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Born and raised in Cannons Creek, Porirua, Eteroa hails from the villages of Fogapoa, Leulumoega Tuai, and Tafagamanu Lefaga in Samoa — where her commitment to service and community leadership first began.</p>
+        <p>She studied Computer Science and began her career as a Software Engineer, building a strong technical foundation that now underpins her work in emerging technologies. Today she serves as Head of AI and Culture at Fibre Fale, leading initiatives focused on building AI capability while ensuring Pacific values remain at the heart of the global technology conversation.</p>
+        <p>Her journey into community technology leadership began with DigiTautua — an initiative to refurbish and fundraise devices for families experiencing the digital divide. From that mission, she co-founded Fibre Fale in 2022, a purpose-driven collective creating pathways for Pacific people to confidently enter and lead within the technology sector.</p>
+        <p>Through Fibre Fale, Eteroa and co-founder Julia Arnott Neenee design and deliver programmes that blend technology, culture, and community — spanning AI education, digital capability building, and spaces where Pacific communities can explore, learn, and lead in emerging technologies.</p>
+        <p>Eteroa is passionate about ensuring that Pacific communities are not just consumers of technology, but builders, creators, and leaders in shaping the digital future.</p>
+      </div>
+      <div class="awards-col">
+        <div class="awards-heading">Recognition</div>
+        <div class="award-item"><div class="award-title">Young New Zealander of the Year</div></div>
+        <div class="award-item"><div class="award-title">Forbes 30 Under 30</div><div class="award-org">Social Impact</div></div>
+        <div class="award-item"><div class="award-title">Hi Tech NZ Young Achiever Award</div></div>
+        <div class="award-item"><div class="award-title">Young IT Professional of the Year</div><div class="award-org">2021</div></div>
+        <div class="award-item"><div class="award-title">Prime Minister's Award for STEM</div></div>
+        <div class="award-item"><div class="award-title">MacDiarmid Institute Discovery Award</div></div>
+        <div class="award-item"><div class="award-title">ASB Good as Gold Award</div></div>
+        <div class="award-item"><div class="award-title">Young Women of Influence</div><div class="award-org">Nominee</div></div>
+        <div class="book-card">
+          <div class="book-label">Author</div>
+          <!-- 📸 PHOTO: Add your book cover image -->
+          <img
+            src="photos/book-cover.jpg"
+            alt="Ete Fixes the Glitch book cover"
+            class="book-cover"
+            onerror="this.style.display='none'"
+          />
+          <div class="book-title">Ete Fixes the Glitch</div>
+          <div class="book-desc">A children's book inspired by growing up in Cannons Creek — encouraging young people to see themselves as creators and problem-solvers in tech.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="section-label">What I do</div>
+    <div class="services">
+      <div class="service-item">
+        <div class="service-num">01</div>
+        <div class="service-title">AI & Digital Capability</div>
+        <div class="service-desc">Leading AI education programmes that are culturally grounded — making artificial intelligence accessible, practical, and led by Pacific voices.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">02</div>
+        <div class="service-title">Technology & Engineering</div>
+        <div class="service-desc">Building digital products and tools rooted in community need — a software engineering background applied to solving real problems for real people.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">03</div>
+        <div class="service-title">Community & Leadership</div>
+        <div class="service-desc">Creating pathways for the next generation of Pasifika technologists — through Fibre Fale, mentorship, and a belief that our communities deserve to lead.</div>
+      </div>
+    </div>
+    <div class="services-row2">
+      <div class="service-item">
+        <div class="service-num">04</div>
+        <div class="service-title">MC</div>
+        <div class="service-desc">Bringing energy, warmth, and cultural authenticity to events of all sizes — from intimate community gatherings to large-scale conferences. Eteroa holds the room with presence, humour, and heart.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">05</div>
+        <div class="service-title">Speaking</div>
+        <div class="service-desc">Available for keynotes and panels across three styles — technical deep-dives into AI and emerging tech, motivational talks on purpose-led leadership, and good vibes sessions that leave audiences energised and inspired.</div>
+        <div class="tag-row">
+          <span class="tag">Technical</span>
+          <span class="tag">Motivational</span>
+          <span class="tag">Good vibes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="cta-text">
+      <h2>Let's build something together.</h2>
+      <p>Whether it's a workshop, a keynote, an event, or a project — reach out.</p>
+    </div>
+    <a href="mailto:hello@example.com" class="btn btn-primary">Get in touch</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">© 2026 Namulau'ulu Nu'uali'i Eteroa Lafaele</div>
+    <div class="footer-right">Teine o le Tumua mai Aana</div>
+  </footer>
+
+</body>
+</html>
