@@ -1,2 +1,9 @@
 .claude/
 .DS_Store
+
+# Ignore all photo source files; only commit the 4 web-optimized versions
+photos/*
+!photos/hero.jpg
+!photos/speaking.jpg
+!photos/community.jpg
+!photos/book-cover.jpg
