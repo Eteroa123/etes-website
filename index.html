@@ -377,6 +377,30 @@
     letter-spacing: 0.01em;
   }
 
+  /* ---------- Algorithm / thought piece ---------- */
+  .algorithm-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: center;
+  }
+  .algorithm-text .block-headline { margin-bottom: 28px; }
+  .algorithm-lead {
+    font-family: var(--serif-body);
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 36px;
+  }
+  .algorithm-image {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    max-width: 440px;
+    justify-self: end;
+    background: var(--paper);
+  }
+
   /* ---------- Book block ---------- */
   .book {
     background: var(--paper);
@@ -489,7 +513,8 @@
   @media (max-width: 860px) {
     .hero { grid-template-columns: 1fr; gap: 40px; }
     .hero-portrait { aspect-ratio: 4/5; max-width: 480px; }
-    .about-grid, .book-inner, .colophon-grid { grid-template-columns: 1fr; }
+    .about-grid, .book-inner, .colophon-grid, .algorithm-grid { grid-template-columns: 1fr; }
+    .algorithm-image { justify-self: start; max-width: 360px; }
     .whatido { grid-template-columns: 1fr; gap: 32px; }
     .nav-menu { gap: 20px; font-size: 13px; }
     footer { flex-direction: column; }
@@ -623,9 +648,24 @@
       <div>
         <div class="eyebrow">Author</div>
         <h2 class="book-title"><em>Ete</em> Fixes the Glitch</h2>
-        <p class="book-body">A children's book inspired by growing up in Cannons Creek — encouraging young Pacific people to see themselves as creators and problem-solvers in tech. Now on a mission to reach all 1,819 primary schools across Aotearoa.</p>
-        <a href="#" class="btn">Learn more</a>
+        <p class="book-body">Eteroa wrote <em>Ete Fixes The Glitch</em> to show Pacific rangatahi that their ideas and creativity can shape the future of technology. The story celebrates her belief that representation matters — when Pacific kids see themselves as innovators, they begin to believe they can lead in tech too.</p>
+        <p class="book-body">Following Ete, a curious young Pasifika girl with a gift for fixing "glitches," the book blends imagination, culture and technology to inspire a new generation of problem-solvers.</p>
+        <p class="book-body">After self-funding the first 200 books to gift to families and children, Fibre Fale is now on a mission to ensure <em>Ete Fixes The Glitch</em> reaches every primary school across Aotearoa — ensuring every child can see themselves reflected in the future of tech.</p>
+        <a href="https://www.fibrefale.com/donate" target="_blank" rel="noopener noreferrer" class="btn">Join the mission</a>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== Ete the Algorithm / thought piece ===== -->
+  <section class="block" id="algorithm">
+    <div class="algorithm-grid">
+      <div class="algorithm-text">
+        <div class="block-label">Thought piece</div>
+        <h2 class="block-headline"><em>Ete</em> the Algorithm.</h2>
+        <p class="algorithm-lead">A journal in public — thinking out loud about artificial intelligence while learning it in real time. The questions, the experiments, and the cultural lens I bring to every prompt.</p>
+        <a href="https://www.instagram.com/etethealgorithm/" target="_blank" rel="noopener noreferrer" class="btn">Follow the journey</a>
+      </div>
+      <img class="algorithm-image" src="photos/EteGPT.jpg" alt="Ete the Algorithm">
     </div>
   </section>
 
