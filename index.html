@@ -352,6 +352,55 @@
     color: var(--muted);
   }
 
+  /* ---------- Video block ---------- */
+  .video-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--ink);
+    border-top: 2px solid var(--ink);
+    overflow: hidden;
+  }
+  .video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .video-caption {
+    font-family: var(--serif-display);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 14px;
+    letter-spacing: 0.01em;
+  }
+
+  /* ---------- Algorithm / thought piece ---------- */
+  .algorithm-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: center;
+  }
+  .algorithm-text .block-headline { margin-bottom: 28px; }
+  .algorithm-lead {
+    font-family: var(--serif-body);
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 36px;
+  }
+  .algorithm-image {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    max-width: 440px;
+    justify-self: end;
+    background: var(--paper);
+  }
+
   /* ---------- Book block ---------- */
   .book {
     background: var(--paper);
@@ -464,7 +513,8 @@
   @media (max-width: 860px) {
     .hero { grid-template-columns: 1fr; gap: 40px; }
     .hero-portrait { aspect-ratio: 4/5; max-width: 480px; }
-    .about-grid, .book-inner, .colophon-grid { grid-template-columns: 1fr; }
+    .about-grid, .book-inner, .colophon-grid, .algorithm-grid { grid-template-columns: 1fr; }
+    .algorithm-image { justify-self: start; max-width: 360px; }
     .whatido { grid-template-columns: 1fr; gap: 32px; }
     .nav-menu { gap: 20px; font-size: 13px; }
     footer { flex-direction: column; }
@@ -537,41 +587,62 @@
           <li><span>Young New Zealander of the Year</span><span class="year">2025</span></li>
           <li><span>Hi-Tech Young Achiever Award</span><span class="year">2024</span></li>
           <li><span>Forbes 30 Under 30</span><span class="year">2023</span></li>
-          <li><span>UC Young Alumni Award</span><span class="year">2023</span></li>
+          <li><span>Young IT Professional of the Year</span><span class="year">2021</span></li>
+          <li><span>Prime Minister's Award for STEM</span><span class="year">2019</span></li>
         </ul>
       </aside>
     </div>
   </section>
 
+  <!-- ===== Watch ===== -->
+  <section class="block" id="watch">
+    <div class="block-label">Watch</div>
+    <h2 class="block-headline">A conversation, <em>in her own words</em>.</h2>
+    <div class="video-frame">
+      <iframe
+        src="https://www.youtube.com/embed/0JY-TmGN2XI"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </div>
+    <p class="video-caption">Featured film · YouTube</p>
+  </section>
+
   <!-- ===== What I do ===== -->
   <section class="block" id="work">
     <div class="block-label">What I do</div>
-    <h2 class="block-headline">Five ways to <em>work together</em>.</h2>
+    <h2 class="block-headline">Six ways to <em>work together</em>.</h2>
     <div class="whatido">
       <div class="whatido-item">
         <div class="whatido-num">01</div>
-        <h3 class="whatido-title"><em>AI</em> & Digital Capability</h3>
-        <p class="whatido-desc">Leading AI education programmes that are culturally grounded — making artificial intelligence accessible, practical, and led by Pacific voices.</p>
+        <h3 class="whatido-title"><em>Digital</em> Literacy</h3>
+        <p class="whatido-desc">Foundational digital skills training for community organisations, government agencies, and workplaces. Practical, culturally responsive, and designed to close the digital divide at scale.</p>
       </div>
       <div class="whatido-item">
         <div class="whatido-num">02</div>
-        <h3 class="whatido-title"><em>Technology</em> & Engineering</h3>
-        <p class="whatido-desc">Building digital products and tools rooted in community need — a software engineering background applied to solving real problems for real people.</p>
+        <h3 class="whatido-title"><em>AI</em> Training</h3>
+        <p class="whatido-desc">AI capability programmes for teams, organisations, and community groups — from introductory workshops to executive briefings. Grounded in real-world application, not hype.</p>
       </div>
       <div class="whatido-item">
         <div class="whatido-num">03</div>
-        <h3 class="whatido-title"><em>Community</em> & Leadership</h3>
-        <p class="whatido-desc">Creating pathways for the next generation of Pasifika technologists — through Fibre Fale, mentorship, and the belief that our communities deserve to lead.</p>
+        <h3 class="whatido-title"><em>MC</em> & Hosting</h3>
+        <p class="whatido-desc">Professional event hosting for conferences, awards, panels, and corporate functions. Experienced in audiences ranging from intimate gatherings to stadium-scale events.</p>
       </div>
       <div class="whatido-item">
         <div class="whatido-num">04</div>
-        <h3 class="whatido-title"><em>MC</em> & Hosting</h3>
-        <p class="whatido-desc">Bringing energy, warmth, and cultural authenticity to events of all sizes — from intimate community gatherings to large-scale conferences.</p>
+        <h3 class="whatido-title"><em>Keynotes</em></h3>
+        <p class="whatido-desc">Keynote addresses on artificial intelligence, digital equity, Pacific leadership, and the future of technology. Available across technical, motivational, and executive formats.</p>
       </div>
       <div class="whatido-item">
         <div class="whatido-num">05</div>
-        <h3 class="whatido-title"><em>Keynotes</em> & Speaking</h3>
-        <p class="whatido-desc">Technical deep-dives into AI and emerging tech, motivational talks on purpose-led leadership, and good-vibes sessions that leave audiences energised.</p>
+        <h3 class="whatido-title"><em>Advisory</em></h3>
+        <p class="whatido-desc">Strategic advisory services for organisations navigating AI adoption, digital transformation, and community engagement. Short-term engagements and ongoing counsel available.</p>
+      </div>
+      <div class="whatido-item">
+        <div class="whatido-num">06</div>
+        <h3 class="whatido-title"><em>Board</em> & Governance</h3>
+        <p class="whatido-desc">Independent director and governance experience across technology, education, and community sectors. Bringing technical fluency, Pacific perspective, and next-generation insight.</p>
       </div>
     </div>
   </section>
@@ -583,33 +654,48 @@
       <div>
         <div class="eyebrow">Author</div>
         <h2 class="book-title"><em>Ete</em> Fixes the Glitch</h2>
-        <p class="book-body">A children's book inspired by growing up in Cannons Creek — encouraging young Pacific people to see themselves as creators and problem-solvers in tech. Now on a mission to reach all 1,819 primary schools across Aotearoa.</p>
-        <a href="#" class="btn">Learn more</a>
+        <p class="book-body">Eteroa wrote <em>Ete Fixes The Glitch</em> to show Pacific rangatahi that their ideas and creativity can shape the future of technology. The story celebrates her belief that representation matters — when Pacific kids see themselves as innovators, they begin to believe they can lead in tech too.</p>
+        <p class="book-body">Following Ete, a curious young Pasifika girl with a gift for fixing "glitches," the book blends imagination, culture and technology to inspire a new generation of problem-solvers.</p>
+        <p class="book-body">After self-funding the first 200 books to gift to families and children, Fibre Fale is now on a mission to ensure <em>Ete Fixes The Glitch</em> reaches every primary school across Aotearoa — ensuring every child can see themselves reflected in the future of tech.</p>
+        <a href="https://www.fibrefale.com/donate" target="_blank" rel="noopener noreferrer" class="btn">Join the mission</a>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== Ete the Algorithm / thought piece ===== -->
+  <section class="block" id="algorithm">
+    <div class="algorithm-grid">
+      <div class="algorithm-text">
+        <div class="block-label">Thought piece</div>
+        <h2 class="block-headline"><em>Ete</em> the Algorithm.</h2>
+        <p class="algorithm-lead">A journal in public — thinking out loud about artificial intelligence while learning it in real time. The questions, the experiments, and the cultural lens I bring to every prompt.</p>
+        <a href="https://www.instagram.com/etethealgorithm/" target="_blank" rel="noopener noreferrer" class="btn">Follow the journey</a>
+      </div>
+      <img class="algorithm-image" src="photos/EteGPT.jpg" alt="Ete the Algorithm">
     </div>
   </section>
 
   <!-- ===== Colophon / contact ===== -->
   <section class="colophon" id="contact">
-    <div class="eyebrow" style="margin-bottom: 24px;">Colophon</div>
-    <h2 class="colophon-headline">Let's <em>build</em> something.</h2>
+    <div class="eyebrow" style="margin-bottom: 24px;">Let's Talanoa</div>
+    <h2 class="colophon-headline"><em>Contact</em> Me.</h2>
     <div class="colophon-grid">
       <div class="colophon-block">
         <div class="colophon-block-label">For bookings</div>
-        <a href="mailto:hello@eteroalafaele.com">hello@eteroalafaele.com</a>
+        <a href="mailto:eteroa@fibrefale.com">eteroa@fibrefale.com</a>
         <p style="color: var(--muted); font-family: var(--serif-body); font-style: italic; margin-top: 8px;">Keynotes, MC, workshops</p>
       </div>
       <div class="colophon-block">
         <div class="colophon-block-label">Follow along</div>
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">Substack</a>
+        <a href="https://www.instagram.com/eteroal/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.linkedin.com/in/eteroa/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.instagram.com/etethealgorithm/" target="_blank" rel="noopener noreferrer">Substack</a>
       </div>
       <div class="colophon-block">
         <div class="colophon-block-label">Other work</div>
-        <a href="https://fibrefale.com">Fibre Fale</a>
-        <a href="#">Ete Fixes the Glitch</a>
-        <a href="#">AI with Eteroa</a>
+        <a href="https://fibrefale.com" target="_blank" rel="noopener noreferrer">Fibre Fale</a>
+        <a href="https://www.fibrefale.com/donate" target="_blank" rel="noopener noreferrer">Ete Fixes the Glitch</a>
+        <a href="https://www.fibrefale.com/ai-with-eteroa" target="_blank" rel="noopener noreferrer">AI with Eteroa</a>
       </div>
     </div>
   </section>
